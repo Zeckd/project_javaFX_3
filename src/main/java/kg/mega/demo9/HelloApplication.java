@@ -150,7 +150,6 @@ public class HelloApplication extends Application {
             scene.setOnKeyPressed(event -> {
                 switch (event.getCode()) {
                     case SPACE:
-                        // При нажатии пробела воспроизводить или ставить на паузу
                         if (mediaPlayer != null) {
                             if (mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING) {
                                 mediaPlayer.pause();
@@ -162,13 +161,11 @@ public class HelloApplication extends Application {
                         }
                         break;
                     case RIGHT:
-                        // При нажатии стрелки вправо перематывать на 5 секунд вперед
                         if (mediaPlayer != null) {
                             mediaPlayer.seek(mediaPlayer.getCurrentTime().add(Duration.seconds(5)));
                         }
                         break;
                     case LEFT:
-                        // При нажатии стрелки влево перематывать на 5 секунд назад
                         if (mediaPlayer != null) {
                             mediaPlayer.seek(mediaPlayer.getCurrentTime().subtract(Duration.seconds(5)));
                         }
@@ -176,7 +173,6 @@ public class HelloApplication extends Application {
                 }
             });
 
-            // Устанавливаем фокус на сцену
             Platform.runLater(() -> scene.getRoot().requestFocus());
 
             stage.setScene(scene);
